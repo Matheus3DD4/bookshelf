@@ -1,55 +1,32 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import CategoriasApi from "@/api/categorias.js";
+const categoriasApi = new CategoriasApi();
 export default {
   data() {
     return {
-      categorias: [
-        {
-          id: "001",
-          categorias: "História do Brasil",
-        },
-        {
-          id: "002",
-          categorias: "Fantasia",
-        },
-        {
-          id: "003",
-          categorias: "Aventura",
-        },
-        {
-          id: "004",
-          categorias: "Biografia",
-        },
-        {
-          id: "005",
-          categorias: "Ficção Científica",
-        },
-        {
-          id: "006",
-          categorias: "Romance",
-        },
-        {
-          id: "007",
-          categorias: "Poesia",
-        },
-      ],
-      novo_categoria: "",
+      categoria: {},
+      categorias: [],
     };
   },
+  async created() {
+    this.categorias = await categoriasApi.buscarTodosOsCategorias();
+  },
   methods: {
-    salvar() {
-      if (this.novo_categorias !== "") {
-        const novo_id = uuidv4();
-        this.categorias.push({
-          id: novo_id,
-          categorias: this.novo_categoria,
-        });
-        this.novo_categoria = "";
+    async salvar() {
+      if (this.categoria.id) {
+        await categoriasApi.atualizarCategoria(this.categoria);
+      } else {
+        await categoriasApi.adicionarCategoria(this.categoria);
       }
+      this.categorias = await categoriasApi.buscarTodosOsCategorias();
+      this.categoria = {};
     },
-    excluir(categoria) {
-      const indice = this.categorias.indexOf(categoria);
-      this.categorias.splice(indice, 1);
+    async excluir(categoria) {
+      await categoriasApi.excluirCategoria(categoria.id);
+      this.categorias = await categoriasApi.buscarTodosOsCategorias();
+    },
+    editar(categoria) {
+      Object.assign(this.categoria, categoria);
     },
   },
 };
@@ -65,7 +42,7 @@ export default {
         <input
           id="cat"
           type="text"
-          v-model="novo_categoria"
+          v-model="categoria.description"
           placeholder="Categoria..."
         />
         <button @click="salvar">Salvar</button>
@@ -85,7 +62,7 @@ export default {
             :key="categoria.id"
             >
               <td class="ide">{{ categoria.id }}</td>
-              <td>{{ categoria.categorias }}</td>
+              <td>{{ categoria.description }}</td>
               <td class="acao">
                 <button @click="editar(categoria)"> Editar </button>
                 <button @click="excluir(categoria)">Excluir</button>

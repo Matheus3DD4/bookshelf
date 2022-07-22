@@ -45,12 +45,6 @@ export default {
       @keyup.enter="salvar" 
       placeholder="Autor..."
       />
-      <input 
-      type="text" 
-      v-model="autor.age" 
-      @keyup.enter="salvar" 
-      placeholder="Idade..."
-      />
       <button @click="salvar">Salvar</button>
     </div>
     <div class="list-autores">
@@ -59,7 +53,6 @@ export default {
           <tr>
             <th> ID </th>
             <th> Autor </th>
-            <th> Idade </th>
           </tr>
         </thead>
         <tbody>
@@ -69,7 +62,6 @@ export default {
           >
             <td class="ide">{{ autor.id }}</td>
             <td>{{ autor.description }}</td>
-            <td>{{ autor.age }}</td>
             <td class="acao">
               <button @click="editar(autor)"> Editar </button>
               <button @click="excluir(autor)"> Excluir </button>
@@ -84,7 +76,7 @@ export default {
 <style>
 
 #aut {
-  width: 40%;
+  width: 35%;
   margin-left: 2px;
   margin-bottom: 20px ;
 }

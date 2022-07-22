@@ -1,32 +1,32 @@
 <script>
-import AutoresApi from "@/api/autores.js";
-const autoresApi = new AutoresApi();
+import EditorasApi from "@/api/editoras.js";
+const editorasApi = new EditorasApi();
 export default {
   data() {
     return {
-      autor: {},
-      autores: [],
+      editora: {},
+      editoras: [],
     };
   },
   async created() {
-    this.autores = await autoresApi.buscarTodosOsAutores();
+    this.editoras = await editorasApi.buscarTodosOsEditoras();
   },
   methods: {
     async salvar() {
-      if (this.autor.id) {
-        await autoresApi.atualizarAutor(this.autor);
+      if (this.editora.id) {
+        await editorasApi.atualizarEditora(this.editora);
       } else {
-        await autoresApi.adicionarAutor(this.autor);
+        await editorasApi.adicionarEditora(this.editora);
       }
-      this.autores = await autoresApi.buscarTodosOsAutores();
-      this.autor = {};
+      this.editoras = await editorasApi.buscarTodosOsEditoras();
+      this.editora = {};
     },
-    async excluir(autor) {
-      await autoresApi.excluirAutor(autor.id);
-      this.autores = await autoresApi.buscarTodosOsAutores();
+    async excluir(editora) {
+      await editorasApi.excluirEditora(editora.id);
+      this.editoras = await editorasApi.buscarTodosOsEditoras();
     },
-    editar(autor) {
-      Object.assign(this.autor, autor);
+    editar(editora) {
+      Object.assign(this.editora, editora);
     },
   },
 };
@@ -41,13 +41,15 @@ export default {
         <input
           id="ed" 
           type="text" 
-          v-model="novo_editora" 
+          v-model="editora.description"
+          @keyup.enter="salvar"  
           placeholder="Editora..." 
         />
         <input 
           id="si" 
           type="url" 
-          v-model="novo_site" 
+          v-model="editora.site"
+          @keyup.enter="salvar"  
           placeholder="Site..." 
         />
         <button @click="salvar"> Salvar </button>
@@ -65,10 +67,10 @@ export default {
           <tbody>
             <tr v-for="editora in editoras" :key="editora.id">
               <td class="ide">{{ editora.id }}</td>
-              <td>{{ editora.editoras }}</td>
+              <td>{{ editora.description }}</td>
               <td>{{ editora.site }}</td>
               <td class="acao">
-                <button> Editar </button>
+                <button @click="editar(editora)"> Editar </button>
                 <button @click="excluir(editora)"> Excluir </button>
               </td>
             </tr>
@@ -82,13 +84,13 @@ export default {
 <style>
 
 #si {
-  width: 30%;
+  width: 25%;
   margin-left: 2px;
   margin-bottom: 20px ;
 }
 
 #ed {
-  width: 30%;
+  width: 22%;
   margin-right: 2px;
 }
 
