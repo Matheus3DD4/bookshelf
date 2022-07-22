@@ -63,6 +63,7 @@ export default {
       </div>
       <div class="form-input">
         <input
+          id="cat"
           type="text"
           v-model="novo_categoria"
           placeholder="Categoria..."
@@ -73,17 +74,20 @@ export default {
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <th> ID </th>
               <th> Categoria </th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="categoria in categorias" :key="categoria.id">
+            <tr 
+            v-for="categoria in categorias" 
+            :key="categoria.id"
+            >
               <td class="ide">{{ categoria.id }}</td>
               <td>{{ categoria.categorias }}</td>
               <td class="acao">
-                <button>Editar</button>
+                <button @click="editar(categoria)"> Editar </button>
                 <button @click="excluir(categoria)">Excluir</button>
               </td>
             </tr>
@@ -95,6 +99,13 @@ export default {
 </template>
 
 <style>
+
+#cat {
+  width: 40%;
+  margin-left: 2px;
+  margin-bottom: 20px ;
+}
+
 .ide {
   width: 25%;
 }

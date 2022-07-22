@@ -39,6 +39,7 @@ export default {
     </div>
     <div class="form-input">
       <input 
+      id="aut"
       type="text" 
       v-model="autor.description" 
       @keyup.enter="salvar" 
@@ -56,9 +57,9 @@ export default {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Autor</th>
-            <th>Idade</th>
+            <th> ID </th>
+            <th> Autor </th>
+            <th> Idade </th>
           </tr>
         </thead>
         <tbody>
@@ -81,6 +82,12 @@ export default {
 </template>
 
 <style>
+
+#aut {
+  width: 40%;
+  margin-left: 2px;
+  margin-bottom: 20px ;
+}
 
 .ide {
   width: 25%;

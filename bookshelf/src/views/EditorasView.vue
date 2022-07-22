@@ -1,66 +1,33 @@
 <script>
-import {v4 as uuidv4} from "uuid";
+import AutoresApi from "@/api/autores.js";
+const autoresApi = new AutoresApi();
 export default {
   data() {
     return {
-      editoras: [
-        {
-          id: "001",
-          editoras: "Antofágica",
-          site: " ",
-        },
-        {
-          id: "002",
-          editoras: "Companhia das Letras",
-          site: " ",
-        },
-        {
-          id: "003",
-          editoras: "Buzz",
-          site: " ",
-        },
-        {
-          id: "004",
-          editoras: "Amoler",
-          site: " ",
-        },
-        {
-          id: "005",
-          editoras: "Aleph",
-          site: " ",
-        },
-        {
-          id: "006",
-          editoras: "GloboLivros",
-          site: " ",
-        },
-        {
-          id: "007",
-          editoras: "Saraiva",
-          site: " ",
-        },
-      ],
-      novo_editora: "",
-      novo_site: ""
+      autor: {},
+      autores: [],
     };
   },
+  async created() {
+    this.autores = await autoresApi.buscarTodosOsAutores();
+  },
   methods: {
-    salvar () {
-      if ((this.novo_editora !== "" || this.novo_site !== "")){
-        const novo_id = uuidv4();
-        this.editoras.push({
-          id: novo_id,
-          editoras: this.novo_editora,
-          site: this.novo_site,
-        });
-        this.novo_editora = "";
-        this.novo_site = "";
+    async salvar() {
+      if (this.autor.id) {
+        await autoresApi.atualizarAutor(this.autor);
+      } else {
+        await autoresApi.adicionarAutor(this.autor);
       }
+      this.autores = await autoresApi.buscarTodosOsAutores();
+      this.autor = {};
     },
-    excluir(editora) {
-      const indice = this.editoras.indexOf(editora);
-      this.editoras.splice(indice, 1);
-    }, 
+    async excluir(autor) {
+      await autoresApi.excluirAutor(autor.id);
+      this.autores = await autoresApi.buscarTodosOsAutores();
+    },
+    editar(autor) {
+      Object.assign(this.autor, autor);
+    },
   },
 };
 </script>
