@@ -1,83 +1,32 @@
 <script>
-import { v4 as uuidv4 } from "uuid";
+import LivrosApi from "@/api/livros.js";
+const livrosApi = new LivrosApi();
 export default {
   data() {
     return {
-      livros: [
-        {
-          id: "001",
-          nome: "1808",
-          isbn: "34548495",
-          quantidade: "5", 
-          preco: "R$25,00",
-        },
-        {
-          id: "002",
-          nome: "Livro do Desassossego",
-          isbn: "37928465",
-          quantidade: "15", 
-          preco: "R$36,00",
-        },
-        {
-          id: "003",
-          nome: "Até que nada mais importe",
-          isbn: "09567373",
-          quantidade: "20", 
-          preco: "R$52,00",
-        },
-        {
-          id: "004",
-          nome: "1984",
-          isbn: "98536710",
-          quantidade: "7", 
-          preco: "R$ 22,90",
-        },
-        {
-          id: "005",
-          nome: "Conectados com Deus",
-          isbn: "3454363452",
-          quantidade: "1", 
-          preco: "25",
-        },
-        {
-          id: "006",
-          nome: "O Alquimista",
-          isbn: "7538039",
-          quantidade: "15", 
-          preco: "$25,00",
-        },
-        {
-          id: "007",
-          nome: "O povo brasileiro",
-          isbn: "3454363452",
-          quantidade: "3", 
-          preco: "R$62,90",
-        },
-      ],
-      novo_livro: "",
-
+      livro: {},
+      livros: [],
     };
   },
+  async created() {
+    this.livros = await livrosApi.buscarTodosOsLivros();
+  },
   methods: {
-    salvar() {
-      if (this.novo_livros !== "" || this.novo_isbn !=="" || this.novo_quantidade !=="" || this.novo_preco !=="") {
-        const novo_id = uuidv4();
-        this.livros.push({
-          id: novo_id,
-          nome: this.novo_livro,
-          isbn: this.novo_isbn,
-          quantidade: this.novo_quantidade,
-          preco: this.novo_preco,
-        });
-        this.novo_livro = "";
-        this.novo_isbn = "";
-        this.novo_quantidade = "";
-        this.novo_preco = "";
+    async salvar() {
+      if (this.livro.id) {
+        await livrosApi.atualizarLivro(this.livro);
+      } else {
+        await livrosApi.adicionarLivro(this.livro);
       }
+      this.livros = await livrosApi.buscarTodosOsLivros();
+      this.livro = {};
     },
-    excluir(livro) {
-      const indice = this.livros.indexOf(livro);
-      this.livros.splice(indice, 1);
+    async excluir(livro) {
+      await livrosApi.excluirLivro(livro.id);
+      this.livros = await livrosApi.buscarTodosOsLivros();
+    },
+    editar(livro) {
+      Object.assign(this.livro, livro);
     },
   },
 };
@@ -89,27 +38,35 @@ export default {
         <h2> Gerenciamento de Livros </h2>
       </div>
       <div class="form-input">
-        <input type="text" 
-        id="inp"
-        v-model="novo_livro" 
-        placeholder="Livro..."
+        <input
+          id="inp" 
+          type="text" 
+          v-model="livro.nome"
+          @keyup.enter="salvar"  
+          placeholder="Nome..." 
         />
-        <input type="text"
-        id="inp" 
-        v-model="novo_isbn" 
-        placeholder="ISBN..."
+        <input 
+          id="inp" 
+          type="text" 
+          v-model="livro.isbn"
+          @keyup.enter="salvar"  
+          placeholder="ISBN..." 
         />
-        <input type="text"
-        id="inp" 
-        v-model="novo_quantidade" 
-        placeholder="Quantidade..."
+        <input 
+          id="inp" 
+          type="text" 
+          v-model="livro.quantidade"
+          @keyup.enter="salvar"  
+          placeholder="Quantidade..." 
         />
-        <input type="text"
-        id="inp" 
-        v-model="novo_preco" 
-        placeholder="Preço..."
+        <input 
+          id="inp" 
+          type="text" 
+          v-model="livro.preco"
+          @keyup.enter="salvar"  
+          placeholder="Preço..." 
         />
-        <button @click="salvar">Salvar</button>
+        <button id="botao" @click="salvar"> Salvar </button>
       </div>
       <div class="list-livros">
         <table>
@@ -130,8 +87,8 @@ export default {
               <td> {{ livro.quantidade }} </td>
               <td> {{ livro.preco }} </td>
               <td class="acao">
-                <button>Editar</button>
-                <button @click="excluir(livro)">Excluir</button>
+                <button @click="editar(livro)"> Editar </button>
+                <button @click="excluir(livro)"> Excluir </button>
               </td>
             </tr>
           </tbody>
@@ -143,8 +100,15 @@ export default {
 
 <style>
 
+#botao {
+  margin-left: 15px;
+  width: 10%;
+}
+
 #inp {
   width: 15%;
+  margin-left: 2px;
+  margin-bottom: 20px ;
 }
 
 .ide {
@@ -178,7 +142,7 @@ export default {
 .form-input button {
   margin-left: 1px;
   width: 20%;
-  height: 40px;
+  height: 20px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 10px;
   background-color: #004a85;

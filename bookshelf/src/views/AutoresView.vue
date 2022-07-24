@@ -45,7 +45,7 @@ export default {
       @keyup.enter="salvar" 
       placeholder="Autor..."
       />
-      <button @click="salvar">Salvar</button>
+      <button id="botao" @click="salvar"> Salvar </button>
     </div>
     <div class="list-autores">
       <table>
@@ -74,6 +74,12 @@ export default {
 </template>
 
 <style>
+
+#botao {
+  margin-left: 15px;
+  width: 10%;
+  font-size: 25px;
+}
 
 #aut {
   width: 35%;
@@ -110,12 +116,10 @@ export default {
 }
 
 .form-input button {
-  margin-left: 1px;
-  width: 20%;
-  height: 40px;
   border: 1px solid rgb(211, 211, 211);
   border-radius: 10px;
   background-color: #004a85;
+  display: inline-block;
   color: rgb(255, 255, 255);
   font-weight: bold;
   cursor: pointer;

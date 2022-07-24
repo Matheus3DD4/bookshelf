@@ -45,7 +45,7 @@ export default {
           v-model="categoria.description"
           placeholder="Categoria..."
         />
-        <button @click="salvar">Salvar</button>
+        <button id="botao" @click="salvar"> Salvar </button>
       </div>
       <div class="list-categorias">
         <table>
@@ -76,6 +76,11 @@ export default {
 </template>
 
 <style>
+
+#botao {
+  margin-left: 15px;
+  width: 10%;
+}
 
 #cat {
   width: 40%;
@@ -119,7 +124,6 @@ export default {
   border-radius: 10px;
   background-color: #0064bb;
   color: rgb(255, 255, 255);
-  font-weight: bold;
   cursor: pointer;
 }
 

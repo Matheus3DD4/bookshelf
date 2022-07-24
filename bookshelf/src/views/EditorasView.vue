@@ -52,7 +52,7 @@ export default {
           @keyup.enter="salvar"  
           placeholder="Site..." 
         />
-        <button @click="salvar"> Salvar </button>
+        <button id="botao" @click="salvar"> Salvar </button>
       </div>
       <div class="list-editoras">
         <table>
@@ -82,6 +82,16 @@ export default {
 </template>
 
 <style>
+
+#botao {
+  margin-left: 15px;
+  width: 10%;
+}
+
+#botao {
+  margin-left: 15px;
+  width: 10%;
+}
 
 #si {
   width: 25%;
