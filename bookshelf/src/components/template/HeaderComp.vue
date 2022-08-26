@@ -23,7 +23,7 @@ header span {
 }
 
 header {
-  background-image: url(https://hfside.com.br/wp-content/uploads/2019/01/fundo-header-300x150.jpg);
+  background-color: black;
   background-size: 100%;
   height: 15%;
   font-size: 1.3rem;
