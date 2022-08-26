@@ -1,12 +1,7 @@
 <template>
   <main>
-    <p>Welcome</p>
+
+   <p> <strong> Welcome</strong> </p> 
+
   </main>
-
 </template>
-
-<style>
-
-
-
-</style>

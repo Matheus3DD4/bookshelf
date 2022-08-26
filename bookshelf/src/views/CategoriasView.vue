@@ -77,54 +77,10 @@ export default {
 
 <style>
 
-#botao {
-  margin-left: 15px;
-  width: 10%;
-}
-
 #cat {
   width: 40%;
   margin-left: 2px;
   margin-bottom: 20px ;
-}
-
-.ide {
-  width: 25%;
-}
-
-.acao {
-  width: 20%;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.form-input {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.form-input input {
-  width: 60%;
-  height: 40px;
-  border: 1px solid rgb(147, 147, 147);
-  border-radius: 10px;
-  padding: 0 10px;
-}
-
-.form-input button {
-  margin-left: 1px;
-  width: 20%;
-  height: 40px;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 10px;
-  background-color: #0064bb;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
 }
 
 .list-categorias {

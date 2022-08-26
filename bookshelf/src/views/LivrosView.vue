@@ -66,7 +66,7 @@ export default {
           @keyup.enter="salvar"  
           placeholder="Preço..." 
         />
-        <button id="botao" @click="salvar"> Salvar </button>
+        <button id="botao" @click="salvar"> salvar </button>
       </div>
       <div class="list-livros">
         <table>
@@ -97,76 +97,3 @@ export default {
     </div>
   </main>
 </template>
-
-<style>
-
-#botao {
-  margin-left: 15px;
-  width: 10%;
-}
-
-#inp {
-  width: 15%;
-  margin-left: 2px;
-  margin-bottom: 20px ;
-}
-
-.ide {
-  width: 20%;
-}
-
-.acao {
-  width: 20%;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.form-input {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.form-input input {
-  width: 60%;
-  height: 40px;
-  border: 1px solid rgb(147, 147, 147);
-  border-radius: 10px;
-  padding: 0 10px;
-}
-
-.form-input button {
-  margin-left: 1px;
-  width: 20%;
-  height: 20px;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 10px;
-  background-color: #004a85;
-  font-weight: bold;
-  color: black;
-  cursor: pointer;
-}
-
-.list-livros {
-  display: flex;
-  justify-content: center;
-}
-
-.list-livros table {
-  width: 80%;
-  margin: 0 auto;
-  border-collapse: collapse;
-}
-
-table, tr, th, td {
-  border: 2px solid black;
-  padding: 10px;
-}
-main{
-  background-image: url();
-}
-</style>

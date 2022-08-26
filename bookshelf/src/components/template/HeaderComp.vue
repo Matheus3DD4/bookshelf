@@ -11,9 +11,6 @@
       <span>|</span>
       <span> <RouterLink to="/categorias">Categorias</RouterLink> </span>
     </div>
-    <div class="menu-direito">
-      <span>Sair</span>
-    </div>
   </header>
 </template>
 
@@ -23,7 +20,6 @@ header span {
 }
 
 header {
-  background-color: black;
   background-size: 100%;
   height: 15%;
   font-size: 1.3rem;

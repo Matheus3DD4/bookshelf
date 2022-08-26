@@ -83,16 +83,6 @@ export default {
 
 <style>
 
-#botao {
-  margin-left: 15px;
-  width: 10%;
-}
-
-#botao {
-  margin-left: 15px;
-  width: 10%;
-}
-
 #si {
   width: 25%;
   margin-left: 2px;
@@ -102,38 +92,6 @@ export default {
 #ed {
   width: 22%;
   margin-right: 2px;
-}
-
-.ide {
-  width: 25%;
-}
-
-.acao {
-  width: 20%;
-}
-
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.form-input {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-}
-
-.form-input button {
-  margin-left: 2px;
-  width: 20%;
-  height: 40px;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 10px;
-  background-color: #0064bb;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .list-editoras {
