@@ -52,7 +52,7 @@ export default {
           @keyup.enter="salvar"  
           placeholder="Site..." 
         />
-        <button id="botao" @click="salvar"> Salvar </button>
+        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
       </div>
       <div class="list-editoras">
         <table>

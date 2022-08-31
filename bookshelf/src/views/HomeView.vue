@@ -1,7 +1,7 @@
 <template>
   <main>
 
-   <p> <strong> Welcome</strong> </p> 
+   <p> <strong> BEM VINDO !</strong> </p> 
 
   </main>
 </template>

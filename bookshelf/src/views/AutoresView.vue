@@ -45,7 +45,7 @@ export default {
       @keyup.enter="salvar" 
       placeholder="Autor..."
       />
-      <button id="botao" @click="salvar"> Salvar </button>
+      <button id="button-29" role="button" @click="salvar"> SALVAR </button>
     </div>
     <div class="list-autores">
       <table>

@@ -45,7 +45,7 @@ export default {
           v-model="categoria.description"
           placeholder="Categoria..."
         />
-        <button id="botao" @click="salvar"> Salvar </button>
+        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
       </div>
       <div class="list-categorias">
         <table>
@@ -65,7 +65,7 @@ export default {
               <td>{{ categoria.description }}</td>
               <td class="acao">
                 <button @click="editar(categoria)"> Editar </button>
-                <button @click="excluir(categoria)">Excluir</button>
+                <button @click="excluir(categoria)"> Excluir </button>
               </td>
             </tr>
           </tbody>

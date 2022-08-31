@@ -66,7 +66,7 @@ export default {
           @keyup.enter="salvar"  
           placeholder="Preço..." 
         />
-        <button id="botao" @click="salvar"> salvar </button>
+        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
       </div>
       <div class="list-livros">
         <table>
