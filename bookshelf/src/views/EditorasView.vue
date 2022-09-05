@@ -35,33 +35,33 @@ export default {
   <main>
     <div class="container">
       <div class="title">
-        <h2> Gerenciamento de Editoras </h2>
+        <h2>Gerenciamento de Editoras</h2>
       </div>
       <div class="form-input">
         <input
-          id="ed" 
-          type="text" 
+          id="ed"
+          type="text"
           v-model="editora.description"
-          @keyup.enter="salvar"  
-          placeholder="Editora..." 
+          @keyup.enter="salvar"
+          placeholder="Editora..."
         />
-        <input 
-          id="si" 
-          type="url" 
+        <input
+          id="si"
+          type="url"
           v-model="editora.site"
-          @keyup.enter="salvar"  
-          placeholder="Site..." 
+          @keyup.enter="salvar"
+          placeholder="Site..."
         />
-        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
+        <button id="button-save" role="button" @click="salvar">SALVAR</button>
       </div>
       <div class="list-editoras">
         <table>
           <thead>
             <tr>
-              <th> ID </th>
-              <th> Editora </th>
-              <th> Site </th>
-              <th> </th>
+              <th>ID</th>
+              <th>Editora</th>
+              <th>Site</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -70,8 +70,10 @@ export default {
               <td>{{ editora.description }}</td>
               <td>{{ editora.site }}</td>
               <td class="acao">
-                <button @click="editar(editora)"> Editar </button>
-                <button @click="excluir(editora)"> Excluir </button>
+                <button id="button-ee" @click="editar(editora)">Editar</button>
+                <button id="button-ee" @click="excluir(editora)">
+                  Excluir
+                </button>
               </td>
             </tr>
           </tbody>
@@ -82,16 +84,17 @@ export default {
 </template>
 
 <style>
-
 #si {
   width: 25%;
   margin-left: 2px;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.867);
 }
 
 #ed {
   width: 22%;
   margin-right: 2px;
+  background-color: rgba(255, 255, 255, 0.867);
 }
 
 .list-editoras {

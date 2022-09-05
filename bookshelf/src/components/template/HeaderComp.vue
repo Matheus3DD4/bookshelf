@@ -21,12 +21,11 @@ header span {
 
 header {
   background-size: 100%;
-  height: 15%;
-  font-size: 1.3rem;
-  padding-left: 2rem;
+  height: 17%;
+  font-size: 1.6rem;
   color: white;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 </style>

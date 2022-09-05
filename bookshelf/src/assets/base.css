@@ -1,4 +1,5 @@
-@media (prefers-color-scheme: dark) {}
+@media (prefers-color-scheme: dark) {
+}
 *,
 *::before,
 *::after {
@@ -12,7 +13,7 @@ body {
   min-height: 100%;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Secular One', sans-serif;
+  font-family: "Secular One", sans-serif;
   font-size: 15px;
   background-image: linear-gradient(141deg, #155799, #159957);
 }
@@ -25,7 +26,8 @@ body {
 #inp {
   width: 15%;
   margin-left: 2px;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.84);
 }
 
 .ide {
@@ -71,52 +73,62 @@ table, tr, th, td {
   border: 2px solid rgb(255, 255, 255);
   padding: 10px;
   color: white;
+  text-align: center;
 }
 
-p{
-  color:#ffffffb9;
+th {
+  font-size: 1.2em;
+}
+
+td {
+  font-size: 1.1em;
+}
+
+p {
+  color: #ffffffb9;
   font-size: 5em;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Bungee Inline', cursive;
+  font-family: "Bungee Inline", cursive;
 }
 
 h2 {
-  font-family: 'Bungee Inline', cursive;
-  color: #ffffffb9;
-  font-size: 2.2em;
+  font-family: "Bungee Inline", cursive;
+  color: #ffffffda;
+  font-size: 2.3em;
 }
 
 .form-input button {
+  border: 1px solid #2a8387;
+  cursor: pointer;
+  display: block;
+  background-color: #36a9ae;
+  background-image: linear-gradient(#37adb2, #329ca0);
+}
+
+.form-input #button-save {
+  font-size: 17px;
   margin-left: 2px;
   width: 15%;
   height: 40px;
-  border: 1px solid #2A8387;
   border-radius: 15px;
   font-weight: 800;
-  cursor: pointer;
-  display: block;
-  font-size: 17px;
-  background-color: #36A9AE;
-  background-image: linear-gradient(#37ADB2, #329CA0);
-}
-
-.form-input #button-29 {
   box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
-  color: #FFFFFF;
+  color: #ffffff;
   outline: 0;
   padding: 11px 15px 12px;
   text-align: center;
-  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  transition: box-shadow 0.05s ease-in-out, opacity 0.05s ease-in-out;
   user-select: none;
   touch-action: manipulation;
 }
 
-#button-29:hover {
-  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 1px 2px;
+#button-save:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset,
+    rgba(0, 0, 0, 0.4) 0 1px 2px;
   text-decoration: none;
-  transition-duration: .15s, .15s;
+  transition-duration: 0.15s, 0.15s;
 }
 
 #button-25:active {
@@ -125,7 +137,7 @@ h2 {
 
 #button-25:disabled {
   cursor: not-allowed;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 #button-25:disabled:active {

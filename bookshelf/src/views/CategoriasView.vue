@@ -45,27 +45,28 @@ export default {
           v-model="categoria.description"
           placeholder="Categoria..."
         />
-        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
+        <button id="button-save" role="button" @click="salvar">SALVAR</button>
       </div>
       <div class="list-categorias">
         <table>
           <thead>
             <tr>
-              <th> ID </th>
-              <th> Categoria </th>
+              <th>ID</th>
+              <th>Categoria</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr 
-            v-for="categoria in categorias" 
-            :key="categoria.id"
-            >
+            <tr v-for="categoria in categorias" :key="categoria.id">
               <td class="ide">{{ categoria.id }}</td>
               <td>{{ categoria.description }}</td>
               <td class="acao">
-                <button @click="editar(categoria)"> Editar </button>
-                <button @click="excluir(categoria)"> Excluir </button>
+                <button id="button-ee" @click="editar(categoria)">
+                  Editar
+                </button>
+                <button id="button-ee" @click="excluir(categoria)">
+                  Excluir
+                </button>
               </td>
             </tr>
           </tbody>
@@ -76,11 +77,11 @@ export default {
 </template>
 
 <style>
-
 #cat {
   width: 40%;
   margin-left: 2px;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.863);
 }
 
 .list-categorias {

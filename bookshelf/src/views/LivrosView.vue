@@ -35,60 +35,60 @@ export default {
   <main>
     <div class="container">
       <div class="title">
-        <h2> Gerenciamento de Livros </h2>
+        <h2>Gerenciamento de Livros</h2>
       </div>
       <div class="form-input">
         <input
-          id="inp" 
-          type="text" 
+          id="inp"
+          type="text"
           v-model="livro.nome"
-          @keyup.enter="salvar"  
-          placeholder="Nome..." 
+          @keyup.enter="salvar"
+          placeholder="Nome..."
         />
-        <input 
-          id="inp" 
-          type="text" 
+        <input
+          id="inp"
+          type="text"
           v-model="livro.isbn"
-          @keyup.enter="salvar"  
-          placeholder="ISBN..." 
+          @keyup.enter="salvar"
+          placeholder="ISBN..."
         />
-        <input 
-          id="inp" 
-          type="text" 
+        <input
+          id="inp"
+          type="text"
           v-model="livro.quantidade"
-          @keyup.enter="salvar"  
-          placeholder="Quantidade..." 
+          @keyup.enter="salvar"
+          placeholder="Quantidade..."
         />
-        <input 
-          id="inp" 
-          type="text" 
+        <input
+          id="inp"
+          type="text"
           v-model="livro.preco"
-          @keyup.enter="salvar"  
-          placeholder="Preço..." 
+          @keyup.enter="salvar"
+          placeholder="Preço..."
         />
-        <button id="button-29" role="button" @click="salvar"> SALVAR </button>
+        <button id="button-save" role="button" @click="salvar">SALVAR</button>
       </div>
       <div class="list-livros">
         <table>
           <thead>
             <tr>
-              <th> ID </th>
-              <th> Livro </th>
-              <th> ISBN </th>
-              <th> Quantidade </th>
-              <th> Preço </th>
+              <th>ID</th>
+              <th>Livro</th>
+              <th>ISBN</th>
+              <th>Quantidade</th>
+              <th>Preço</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="livro in livros" :key="livro.id">
               <td class="ide">{{ livro.id }}</td>
               <td>{{ livro.nome }}</td>
-              <td> {{ livro.isbn }}</td>
-              <td> {{ livro.quantidade }} </td>
-              <td> {{ livro.preco }} </td>
+              <td>{{ livro.isbn }}</td>
+              <td>{{ livro.quantidade }}</td>
+              <td>{{ livro.preco }}</td>
               <td class="acao">
-                <button @click="editar(livro)"> Editar </button>
-                <button @click="excluir(livro)"> Excluir </button>
+                <button id="button-ee" @click="editar(livro)">Editar</button>
+                <button id="button-ee" @click="excluir(livro)">Excluir</button>
               </td>
             </tr>
           </tbody>

@@ -38,33 +38,30 @@ export default {
       <h2>Gerenciamento de Autores</h2>
     </div>
     <div class="form-input">
-      <input 
-      id="aut"
-      type="text" 
-      v-model="autor.description" 
-      @keyup.enter="salvar" 
-      placeholder="Autor..."
+      <input
+        id="aut"
+        type="text"
+        v-model="autor.description"
+        @keyup.enter="salvar"
+        placeholder="Autor..."
       />
-      <button id="button-29" role="button" @click="salvar"> SALVAR </button>
+      <button id="button-save" role="button" @click="salvar">SALVAR</button>
     </div>
     <div class="list-autores">
       <table>
         <thead>
           <tr>
-            <th> ID </th>
-            <th> Autor </th>
+            <th>ID</th>
+            <th>Autor</th>
           </tr>
         </thead>
         <tbody>
-          <tr 
-          v-for="autor in autores" 
-          :key="autor.id"
-          >
+          <tr v-for="autor in autores" :key="autor.id">
             <td class="ide">{{ autor.id }}</td>
             <td>{{ autor.description }}</td>
             <td class="acao">
-              <button @click="editar(autor)"> Editar </button>
-              <button @click="excluir(autor)"> Excluir </button>
+              <button id="button-ee" @click="editar(autor)">Editar</button>
+              <button id="button-ee" @click="excluir(autor)">Excluir</button>
             </td>
           </tr>
         </tbody>
@@ -74,11 +71,11 @@ export default {
 </template>
 
 <style>
-
 #aut {
   width: 35%;
   margin-left: 2px;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.864);
 }
 
 .list-autores {
